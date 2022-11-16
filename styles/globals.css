@@ -1,0 +1,60 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  overflow-wrap: break-word;
+}
+
+.background-red {
+  background-color: red;
+}
+
+.card-disabled {
+  background-color: gray;
+  cursor: default !important;
+}
+
+button {
+  margin: 1rem;
+  padding: 0;
+  cursor: pointer;
+  border: 0 none;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+button:disabled > .MuiCard-root {
+  background-color: gray;
+}
+
+button.button-card {
+  text-align: left;
+}
+
+button.button-submit {
+  margin: 1rem;
+  padding: 0;
+  border: 0 none;
+}
+
+fieldset {
+  border: 0 none;
+  padding: 0;
+  margin: 0;
+}
