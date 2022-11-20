@@ -10,12 +10,8 @@ export default function Card4() {
     const data = useRecoilValue(appState);
     const resetState = useResetRecoilState(appState);
 
-    const reset = () => {
-        data.button4Enabled && resetState();
-    }
-
     return (
-        <button onClick={reset} type="button" className="button-card" disabled={!data.button4Enabled}>
+        <button onClick={resetState} type="button" className="button-card" disabled={!data.button4Enabled}>
             <Card sx={{ minWidth: 360, minHeight: 225 }}>
                 <CardContent>
                     <Typography variant="body1">

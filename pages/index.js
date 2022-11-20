@@ -4,13 +4,18 @@ import * as React from 'react';
 
 import { RecoilRoot } from 'recoil';
 
-import Card1 from '../cards/card1';
-import Card2 from '../cards/card2';
-import Card3 from '../cards/card3';
-import Card4 from '../cards/card4';
+import {
+  Card1,
+  Card2,
+  Card3,
+  Card4,
+  Card5,
+  Card6,
+  CardInput,
+  CardSubmit,
+} from '../cards';
+
 import Fieldset from '../fieldset';
-import CardInput from '../cards/card-input';
-import CardSubmit from '../cards/card-submit';
 
 export default function Home() {
   return (

@@ -15,7 +15,11 @@ export default function CardInput() {
 
     const onChange = (e) => {
         const value = e.target.value;
-        setData({...data, phrase: value, phraseMatched: value.toLowerCase() === 'activate button'});
+
+        if (!data.button5Enabled) {
+            let button5Enabled = value.toLowerCase() === 'activate button';
+            button5Enabled && setData({...data, button5Enabled});
+        }
     }
 
     return (
@@ -25,7 +29,7 @@ export default function CardInput() {
                     Input Secret
                 </Typography>
 
-                <TextField id="phrase" type="text" value={data.phrase} onChange={onChange} />;
+                <TextField id="phrase" type="text" onChange={onChange} />
             </CardContent>
         </Card>
     );

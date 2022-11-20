@@ -22,8 +22,8 @@ export default function Card6() {
 
 
     return (
-        <button onClick={setIncrementFn} type="button" className="button-card" disabled={!data.phraseMatched}>
-            <Card sx={{ minWidth: 360, minHeight: 225 }}>
+        <button onClick={setIncrementFn} type="button" className="button-card" disabled={!data.button5Enabled}>
+            <Card sx={{ minWidth: 360, maxWidth: 360, minHeight: 225 }}>
                 <CardContent>
                     <Typography variant="body1">
                         (To activate this button, enter "Activate button")<br/>

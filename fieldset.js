@@ -10,7 +10,7 @@ export default function Fieldset() {
   const data = useRecoilValue(appState);
 
   return (
-    <fieldset disabled={!data.phraseMatched}>
+    <fieldset disabled={!data.button5Enabled}>
       <Card5></Card5>
 
       <Card6></Card6>

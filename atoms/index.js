@@ -9,8 +9,8 @@ export const appState = atom({
             hasError: false,
         },
         button4Enabled: false,
-        phrase: '',
-        phraseMatched: false,
+        button5Enabled: false,
+        buttonSubmitEnabled: false,
         counter: 0,
         increment: function () {
             console.log("pass increment function");
