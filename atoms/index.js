@@ -11,6 +11,7 @@ export const appState = atom({
         button4Enabled: false,
         button5Enabled: false,
         buttonSubmitEnabled: false,
+        input: '',
         counter: 0,
         increment: function () {
             console.log("pass increment function");
