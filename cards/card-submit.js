@@ -8,6 +8,7 @@ import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 
 import {
+  Box,
   Button,
   Dialog,
   DialogTitle,
@@ -20,6 +21,17 @@ import {
   ListItemButton,
   ListItemText,
 } from '@mui/material';
+
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Unstable_Grid2';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -63,13 +75,20 @@ export default function CardSubmit() {
     const [open, setOpen] = React.useState(false);
     const data = useRecoilValue(appState);
 
-    const isEnabled = () => data.button4Enabled && data.phraseMatched && !data.img.hasError && data.counter >= 3;
+    const isEnabled = () => data.button4Enabled && data.buttonSubmitEnabled && !data.img.hasError && data.counter >= 3;
 
     const handleClickOpen = () => {
         setOpen(true);
     };
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const contentStyle = {
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundImage: `url(${data.img.src})`
     };
 
     return (
@@ -82,28 +101,26 @@ export default function CardSubmit() {
                 aria-labelledby="customized-dialog-title"
                 open={open}
             >
-                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    Congratulations for completing the puzzle!
-                </BootstrapDialogTitle>
-                <DialogContent dividers>
-                    <Typography gutterBottom>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-                    </Typography>
-                    <img src={data.img.src}></img>
+                <DialogContent dividers style={contentStyle}>
+                    <h4 className='overlay-text'>Congratulations for completing the puzzle!</h4>
 
-                    <List>
-                        {data.json && Object.keys(data.json.data).map((key, index) => {
-                            return (
-                                <ListItem disablePadding>
-                                    <ListItemButton>
-                                    <ListItemText primary={`${key}:${data.json.data[key]}`} />
-                                    </ListItemButton>
-                                </ListItem>
-                            );
-                        })}
-                    </List>
+                    <Grid container spacing={3} sx={{ flexGrow: 1 }}>
+                      <Grid xs md={8} mdOffset={2}>
+                        <Item>
+                          <List>
+                            {data.json && Object.keys(data.json.data).map((key) => {
+                                return (
+                                    <ListItem key="{key}" disablePadding>
+                                        <ListItemButton>
+                                        <ListItemText primary={`${key}:${data.json.data[key]}`} />
+                                        </ListItemButton>
+                                    </ListItem>
+                                );
+                            })}
+                          </List>
+                        </Item>
+                      </Grid>
+                    </Grid>
                 </DialogContent>
                 <DialogActions>
                 <Button autoFocus onClick={handleClose}>
